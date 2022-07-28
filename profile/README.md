@@ -137,7 +137,7 @@ for staking the USDAO stablecoin in [OnVault](https://docs.usdao.io/usdao-v2/pro
 USDAO Pool to further stabilize USDAO Pool and the remaining 2% for the liquidity pool pair
 creation and 1% towards Community Marketing.
 
-### USDAO Pool
+## USDAO Pool
 
 The Ether that is deposited during the minting operation of USDAO stablecoin and the ETH
 deposited for borrowing of USDAO stablecoin from OnVault feature in USDAO Ecosystem is
@@ -148,12 +148,12 @@ determine the debt ratio.
 The funds raised from the ASSET Token sale will be locked in the USDAO pool to create deep
 liquidity which will stabilize USDAO stablecoin at 1 US dollar.
 
-### Buffer
+## Buffer
 
 Buffer is the Ether value in USD calculated using oracle price which is left after subtracting
 USDAO total supply in the ecosystem. For more understanding: review our [docs](https://docs.usdao.io/usdao-v2/)
 
-### Mint Price
+## Mint Price
 
 Mint price is the price at which USDAO stablecoin is minted against Ether. It is relatively pegged
 to 1 US dollar worth of Ether. The price of $1 worth of ETH at the time of minting is
@@ -162,7 +162,7 @@ determined by the median of ETH/USD price returned by the oracles being used.
 The mint price is not subjected to fluctuation from its base price of $1. This is intentional and is
 important to discourage any arbitrage opportunities.
 
-### Burn Price
+## Burn Price
 
 Burn price is the price at which the user withdraws back his Ether against the deposited
 stablecoins. Equivalent to the minting price, the burn price is decided by the current ETH/USD
@@ -197,3 +197,195 @@ In such situations, the debt ratio then must be brought down below by funding th
 Pool by minting ASSET tokens through USDAO Ecosystem collected revenue through
 community governance or by investors. The community must be proactive to ensure required
 steps must be taken to keep the debt ratio below 80%.
+
+## MAX Debt Ratio
+
+When the debt ratio goes above 80% the revenue collected in USDAO Ecosystem would be
+used to collateralise the pool through governance by the foundation proposal.
+
+
+## Oracles
+
+An oracle is a reliable source of ETH/USD price. Our system currently calculates the median
+ETH/USD price from following oracles
+- Chainlink ETH/USD.
+- Uniswap v3 ETH/USDC TWAP.
+- Uniswap v3 ETH/USDT TWAP.
+
+These oracles are an indispensable part of the whole ecosystem as it determines the mint and
+burn prices. The debt ratio is also determined by the prices returned by the oracles.
+
+The reason to use three oracles is to protect the system against any malfunction or inaccuracy
+in any individual oracle. The system calculates the median price returned by these three
+oracles, which is further used in operations like mint, burn, etc.
+
+## Predictive Collateralized ASSET Price (PCAP)
+
+PCAP Represent an predictive price of Asset token from the USDAO pool in terms of Collateral
+allocated in USDAO pool’s Buffer
+> PCAP = Buffer/Total Circulating supply of ASSET Token
+
+This predictive price is implemented because the funds raised from the asset token sale will be
+locked in the USDAO pool forever and the collateral locked will be in ETH creating a minimum
+ASSET price discovery in accordance with the USDAO pool (In theory).
+
+## USDAO Ecosystem Revenue
+
+While Minting and Burning, a marginal charges are collected by the ecosystem through smart
+contracts. There are no charges on Transfer of USDAO between accounts. These are the following
+charges that the system generates:
+
+<b>USDAO Mint</b>: 0.0% of the transaction total deducted when exchanging ETH for USDAO.
+
+<b>USDAO Burn</b>: 0.3% of the transaction total will be deducted when exchanging USDAO for ETH.
+
+<b>USDAO Transfer</b>: 0.0% charges on the Transaction Fee
+
+<b>OnVault Staking</b>: 0.1% of the claimed ASSET deducted whilst claiming staking rewards.
+
+All the charges collected accumulate in the USDAO Revenue contract which are governed by the
+ASSET token holder community. The community hence can decide how to utilize the funds
+generated for the welfare of the ecosystem. The RUIT foundation, however, can also request a
+marginal share of the fund from the USDAO governance community(ASSET) through proposals to
+promote economic activities like running hackathons and other activities essential for uplifting
+the USDAO ecosystem.
+
+The percentage of all the above types of charges is decided by the ASSET governance community
+through prescribed governance protocol.
+
+## RUIT Foundation Revenue
+
+The RUIT foundation receives working and operation capital from USDAO ecosystem revenue
+through community governance, with the purpose being the ongoing operation and maintenance
+costs required to meet, the costs of the base infrastructure which supports the USDAO protocol.
+
+Only RUIT Foundation holds the key rights to propose the proposal for withdrawing the funds
+from the USDAO Ecosystem Revenue with the approval of the governance community.
+
+## RUIT Foundation Proposal Funding
+
+The RUIT Foundation may request additional funds from the USDAO ecosystem to cover
+additional activities beneficial to the protocol by submitting a budget proposal through the
+governance proposal system.
+
+Examples of budget proposals could include costs for running hackathons, additional liquidity
+provision, marketing and so on.
+
+To maintain neutrality and the principles of decentralized governance, the support of ASSET
+token holders will be required to approve the proposal, meaning that the Foundation always
+remains accountable to the wider community.
+
+Any funds which would be transferred in the event of an approved proposal would be derived
+from the USDAO Revenue contract’s collected revenue in the form of either USDAO or ETH.
+
+## Architecture
+
+The USDAO protocol consists of multiple smart contracts. The USDAO stablecoin, is an ERC20
+token whose price is pegged to 1 US dollar. The second token, the ASSET token, is also an ERC20
+token but its price may fluctuate depending upon the Market volatility in the Exchange price and
+independent from USDAO pool.
+
+The prime role of the ASSET token is to absorb all the market price volatility of Ether from USDAO
+and help it maintain its original price which is pegged to 1 US dollar.
+
+The entire system is governed by ASSET token holders. The ASSET token holders, play a key role
+of USDAO governance in the hands of a decentralized community. The holders of governance
+tokens can create, vote and delegate proposals forming a DAO (Decentralized Autonomous
+Organization) for the stablecoin through [Snapshot](https://snapshot.org/#/usdaogov.eth).
+
+This is explained in detail in the [governance section](https://docs.usdao.io/usdao-v2/decentralized-governance/usdao-governance-protocol) in the docs:
+
+Apart from regular mint and burn operations users can also:
+1. Stake USDAO stablecoin to get ASSET token as rewards for long-term holders. This is
+possible through the staking mechanism provided by [OnVault staking](https://onvault.usdao.io/?#/stake).
+2.  Borrow USDAO by providing Ether as the collateral on [OnVault App](https://onvault.usdao.io/#/dashboard) at 0% Free Interest
+Rate on collateral, Close your Debt any time without incurring any Interest charges.
+3. User’s will get ETH* and ASSET token in reward for Staking USDAO in USDAO Vaule.
+
+## How it works
+
+The USDAO stablecoin is designed to be pegged to 1 US dollar. The two operations, mint and
+burn, help it maintain its peg. When either of these two activities increases more than the other,
+the USDAO mint or burn price rises or falls slightly to discourage any more such operations.
+
+However, ideally in stable market conditions, if a user deposits x dollar worth of Ether into the
+system he shall receive x amount of USDAO stablecoins. Conversely, if a user deposits x amount
+of stablecoins back into the system he shall receive x US dollar worth of Ether back in his wallet.
+
+<i>The prices for all such operations are determined by the median price of following oracles</i>
+
+<p align="right">- <i>Chainlink ETH/USD, Uniswap v3 ETH/USDC TWAP, Uniswap v3 ETH/USDT TWAP</i></p>
+
+However, since the price of Ether is constantly volatile it is required to maintain the US dollar
+value of the USDAO pool always greater than the number of stablecoins out in the market. This is
+made possible by funding the pool by selling the ASSET Token which is the governance Token of
+the system through community issuance/Launchpads and raise funds and supply it to the USDAO
+pool to maintain the stability of the USDAO stablecoin and keep the system always financially
+healthy.
+
+ASSET token holders act as the governance community for the USDAO ecosystem. ASSET token
+holders can create and vote on the proposals to make the USDAO protocol always pegged to US
+dollar.
+
+The exchange rate for the above operation is determined by a set of oracles. One of the biggest
+hurdles in keeping the trade fair arises through irregular oracle prices. Differences in prices in the
+USDAO system and the outside world may expose the entire system to unknown opportunities
+for exploitation and arbitrage. To overcome this issue the protocol utilizes three popular and
+reliable oracles -
+1. Chainlink’s ETH/USD feed, sourcing a bunch of off-chain sources
+2. A Uniswap v3 TWAP (time-weighted average price) vs a stablecoin: specifically, ETH/USDC.
+3. Uniswap v3 ETH/USDT TWAP
+
+Now even if one of the oracles stopped working or provided the wrong prices the system will
+continue to work properly. Using the median of the three oracles, protect against malfunction by
+any single oracle. The median value returned by the oracles is used for all the system's
+calculations. Through governance, the community can add or delete oracles to make the USDAO
+ecosystem more robust.
+
+The USDAO protocol also has USDAO Pool contracts that hold the collateral (ETH) and other
+features like secure transactions, which allows the protocol to prevent fraud from any party with
+the use of strong cryptographic techniques which makes this protocol more secure and safe for
+the public blockchain.
+
+USDAO stablecoin can be used for everyday means of exchange, a store of value, market entry,
+and most commonly to provide a less volatile holding ground for investors and traders during the
+upswings and crashes of the cryptocurrency market.
+
+## Advantages
+
+- `Resourceful documentation, SDKs and tools, to build applications easily and elegantly on
+top of the USDAO Ecosystem.`
+We are providing rich content for the documentation,
+libraries, and APIs along with tutorials to the developer community to build applications on
+top of USDAO. The resources will be compatible with all the major programming languages
+that are popular in blockchain development. This promises continuous innovation &
+development of innumerous applications in the future.
+- `Simplified integration and user-friendly tools.`
+We have emphasized heavily keeping the
+complexity of the applications away from the user experience. The applications and tools
+built on USDAO stablecoin are remarkably simple to integrate into any web or mobile
+application. All our applications are designed to be cross-OS platforms, cross-browser
+platforms with minimal clicks and dependencies. We are also providing simple
+documentation, video tutorials, and support to simplify the integration of our USDAO SDK
+on your platform with minimal technical knowledge.
+- `Robust architecture and a strong peg to 1 US dollar.`
+The pooling mechanism is designed in
+such a way to always grow in value without putting any financial pressure on either users
+or investors. This ensures the stablecoin is always strongly pegged to 1 US dollar by
+keeping the debt ratio always low. The system is also designed to keep a balance between
+the number of mints, burns, and discourage too much arbitrage activity committed in a
+short period. It is designed to keep the collateral position stronger irrespective of a market
+bullish or bearish run.
+- `Governed by a 100 percent decentralized community.`
+Any person with ASSET governance
+tokens has the right to create a proposal, vote, or delegate their votes, that can make
+crucial changes depending on the future requirement through snapshot.
+- `Presence in multiple blockchains.`
+USDAO and its applications will be deployed in multiple
+blockchains including Ethereum and others. As more improved and better blockchain
+platforms emerge in the future we shall mark our presence there as well.
+- `Available in multiple pairs and on all major exchanges.`
+USDAO would be available in all the
+major exchanges of the world including both centralized and decentralized exchanges. It
+shall also be available in as many pairs as possible, notably ETH/USDAO, BTC/USDAO, and
+many more.
