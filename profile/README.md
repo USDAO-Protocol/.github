@@ -389,3 +389,54 @@ USDAO would be available in all the
 major exchanges of the world including both centralized and decentralized exchanges. It
 shall also be available in as many pairs as possible, notably ETH/USDAO, BTC/USDAO, and
 many more.
+
+# Fig. High-level overview of the project
+## Detailed Comparison & Review of USDAO, USDT, USDC & DAI
+
+| Features | USDAO | USDT | USDC | DAI | 
+| --- | --- | --- | --- | --- |
+|Market Cap(18-02-2022) | NA | $78,732,248,474 | $52,466,941,954 | $10,215,966,621 |
+| Current Price(18-02-2022) | NA | $0.9996 - $1 |  $0.9999 - $1 | $0.9996 - $1 |
+| Circulating Supply(18-02-2022) | NA | 78.73B USDT | 52.46B USDC | 10.21B DAI |
+| Launch Date | NA | 2014 | 2018 | 2017 |
+| All Time High | NA | $1.32 | $2.35 | $3.67 | 
+| All Time Low | NA | $0.91 | $0.92 | $0.94 | 
+| Live | Pre Launch | Yes | Yes | Yes | 
+| Asset Backed/Algorithmic | Asset Backed | Asset Backed | Asset Backed | Asset Backed | 
+| Crypto Reserve | ETH | USD, EUR, YEN | USD | ETH | 
+| Underlying Asset | USD | USD | USD | USD | 
+| Platform | Ethereum, BSC, Cardano, Algorand, Solana, OKExChain, Huobi Eco Chain, Avalanche, Elrond, Tron, Hadera Hashgraph, Polkadot (upcoming) | Ethereum BSC, Solan, Omni Protocol, EOS, Tron, Algorand | Ethereum | Ethereum | 
+| Complexity | Medium | Low | Low | High | 
+| Open Source | Yes | Hybrid | Hybrid | Yes | 
+| Ecosystem | USDAO Community | Centralized | Centralized | MakerDAO | 
+| Exchange ability | Yes | Yes | Yes | Yes | 
+| Symbol | USDAO | USDT | USDC | DAI | 
+| Minable | No | No | No | No | 
+| Mintable | Yes | Yes | Yes | Yes | 
+| Website | Usdao.io | Tether.to | Centre.io | Makerdao. | 
+| Whitepaper | https://app.usdao.io/whitepaper | https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf | https://f.hubspotusercontent30.net/hubfs/9304636/PDF/centre-whitepaper.pdf | https://whitepaper.io/document/588/dai-whitepaper | 
+| Privacy (KYC) | No | - | - | No | 
+| Collateral Type | Crypto Backed | Fiat Backed | Fiat Backed | Crypto Backed | 
+| Ease Of Use | High | High | High | High | 
+| Legal Name | USDAO Foundation | iFinex, Inc. | Circle Internet Financial Limited | MakerDAO Foundation | 
+| Audit Frequency | Public Smart Contract | Infrequent | Monthly | Public Smart Contract | 
+| Hardware Wallets | NA | Ledger, Trezor | Ledger, Trezor | Ledger, Trezor | 
+| Exchanges | Bitmax, Poloniex, Kraken, Bittrex, Latoken,Coinbase, Kucoin, Probit, CEX (Centralized Exchange),Huobi Global, OKEX,Bitfinex, Kyberswap, Uniswap (upcoming) | Kucoin,Bitfinex, Binance, Poloniex, Okex, Gate.io, Bittrex Global, Kraken, Huobi Global,Bitmax, Binance US, KyberSwap, HitBTC, Bitcoin.com | Coinbase Pro, Binance, Poloniex, Kucoin, Bitfinex, Okex, Bitmax, Huobi Global, Gate.io, KyberSwap, IDEX, Uniswap, HitBTC, Oasis Trade, Krake | Bitfinex, Kucoin, KyberSwap, Radar Relay, Bittrex Global, Coinbase Pro, Kraken,Gate.io, IDEX, Uniswap, HitBTC, Oasis Trade | 
+| Fees | Yes | - | - | Yes | 
+| Backing Coins | 8(upcoming) | 3 | 1 | 1 | 
+| Reserve | Yes | Yes | Yes | Yes | 
+| Features | USDAO | USDT | USDC | DAI | 
+| Stability | High | Medium | Medium | Medium | 
+| Integration | High | High | High | High | 
+| Ownership | Community Driven | Several Exchanges | CENTRAL | MakerDAO | 
+| Gas Optimization|  Yes | No | No | No | 
+| Flexibility | High | High | High | Medium | 
+| Multi Blockchain Support | High | Medium | Medium | Low | 
+| Decentralization | High | Medium | Medium | High | 
+| Fund Freezing | No | Yes | Yes | No | 
+| Scalability | High | High | High | Medium | 
+| Liquidity | High | High | High | High | 
+| Transparency | High | Medium | Medium | High | 
+| Security | High | Medium | Medium | High | 
+| Automation | High | Low | Low | Medium | 
+| Wallet Support | High | High | High | High | 
