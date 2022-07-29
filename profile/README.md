@@ -668,3 +668,187 @@ collateral or paying off some of your debt.
 
 For example: Let’s say the current price of ETH is $3,000 and you decide to deposit 10 ETH. If you
 borrow 10,000 USDAO, then the collateral ratio for your Vault would be 300%.
+$$ {10\ ETH*\$3000 \over 10,000\ USDAO} = 300\% $$
+If you instead took out 25,000 USDAO that would put your ratio at 120%.
+#### What is the minimum collateral ratio (MCR) and the "recommended" collateral ratio?
+The minimum collateral ratio (or MCR for short) is the lowest ratio of debt to collateral that will
+not trigger a liquidation under normal operations (aka Normal Mode). This is a protocol
+parameter that is set to 110%. So if your Vault has a debt of 10,000 USDAO, you would need at
+least $11,000 worth of Ether posted as collateral to avoid being liquidated.
+
+To avoid liquidation during Recovery Mode, it is recommended to keep the ratio comfortably
+above 125% (e.g. 180% or better 220%).
+#### What happens if my Vault is liquidated?
+You lose your collateral as your debt is paid off through liquidation, i.e. you will no longer be able
+to retrieve your collateral by repaying your debt. A liquidation thus results in a maximum net loss
+of 9.09% (= 100% * 10 / 110) of your collateral’s Dollar value.
+#### What is the Liquidation Reserve?
+When you open a Vault and draw a loan, 200 USDAO is set aside as a way to compensate gas
+costs for the transaction sender in the event your Vault being liquidated. The Liquidation Reserve
+is fully refundable if your Vault is not liquidated, and is given back to you when you close your
+Vault by repaying your debt. The Liquidation Reserve counts as debt and is taken into account for
+the calculation of a Vault’s collateral ratio, slightly increasing the actual collateral requirements.
+#### How can you offer a collateral ratio as low as 110%?
+By making liquidation instantaneous and more efficient, OnVault needs less collateral to provide
+the same security level as similar protocols that rely on lengthy auction mechanisms to sell off
+collateral in liquidations.
+#### How can I take advantage of leverage?
+You can sell the borrowed USDAO on the market for ETH and use the latter to top up the
+collateral of your Vault. That allows you to draw and sell more USDAO, and by repeating the
+process you can reach the desired leverage ratio.
+#### Is there a way the collateral and debt of my Vault increase without my intervention?
+If Vaults are liquidated and the Stability Pool is empty (or gets emptied due to the liquidation),
+every borrower will receive a portion of the liquidated collateral and debt as part of a
+redistribution process.
+
+### Stability Pool and Liquidations
+#### What is the Stability Pool?
+The Stability Pool/ Onvault Staking is the first line of defense in maintaining system solvency. It
+achieves that by acting as the source of liquidity to repay debt from liquidated Vaults—ensuring
+that the total USDAO supply always remains backed.
+
+When any Vault is liquidated, an amount of USDAO corresponding to the remaining debt of the
+Vault is burned from the Stability Pool’s balance to repay its debt. In exchange, the <b>entire
+collateral</b> from the Vault is transferred to the Stability Pool.
+
+The Stability Pool is funded by users transferring USDAO into it (called Stability Providers). Over
+time Stability Providers lose a pro-rata share of their USDAO deposits, while gaining a pro-rata
+share of the liquidated collateral in ETH. However, because Vaults are likely to be liquidated at
+just below 110% collateral ratios, it is expected that Stability Providers will receive a greater
+dollar-value of collateral relative to the debt they pay off.
+#### Why should I deposit USDAO to the Stability Pool?
+Stability Providers will make liquidation gains (see below) and rewards in form of ASSET tokens,
+which is also the Governance Token of the USDAO Ecosystem.
+#### What are liquidations?
+To ensure that the entire stablecoin supply remains fully backed by collateral, Vaults that fall
+under the minimum collateral ratio of 110% will be closed (liquidated).
+
+The debt of the Vault is canceled and absorbed by the Stability Pool and its collateral distributed
+among Stability Providers.
+
+The owner of the Vault still keeps the full amount of USDAO borrowed but loses ~10% value
+overall hence it is critical to always keep the ratio above 110%, ideally above 125%.
+#### Who can liquidate Vaults?
+Anybody can liquidate a Vault as soon as it drops below the Minimum Collateral Ratio of 110%.
+The initiator receives a gas compensation (200 USDAO + 0.5% of the Vault ‘s collateral) as reward
+for this service.
+#### How am I compensated for liquidating a Vault?
+The liquidation of Vaults is connected with certain gas costs which the initiator has to cover. The
+cost per Vault was reduced by implementing batch liquidations of up to 160 - 185 Vaults but with
+the aim of ensuring that liquidations remain profitable even in times of soaring gas prices the
+protocol offers a gas compensation given by the following formula:
+
+gas compensation = 200 USDAO + 0.5% of Vault ‘s collateral (ETH)
+
+The 200 USDAO is funded by a Liquidation Reserve while the variable 0.5% part (in ETH) comes
+from the liquidated collateral, slightly reducing the liquidation gain for Stability Providers.
+#### How do I benefit as a Stability Provider from liquidations?
+As liquidations happen just below a collateral ratio of 110%, you will most likely experience a net
+gain whenever a Vault is liquidated.
+
+Let’s say there is a total of 1,000,000 USDAO in the Stability Pool and your deposit is 100,000
+USDAO.
+Now, a Vault with debt of 200,000 USDAO and collateral of 400 ETH is liquidated at an Ether price
+of $545, and thus at a collateral ratio of 109% (= 100% * (400 * 545) / 200,000). Given that your
+pool share is 10%, your deposit will go down by 10% of the liquidated debt (20,000 USDAO), i.e.
+from 100,000 to 80,000 USDAO.
+
+In return, you will gain 10% of the liquidated collateral, i.e. 40 ETH, which is currently worth
+$21,800. Your net gain from the liquidation is $1,800.
+
+Note that depositors can immediately withdraw the collateral received from liquidations and sell
+it to reduce their exposure to ETH, if the USD value of ETH is expected to decrease.
+#### Can I withdraw my deposit whenever I want?
+As a general rule, you can withdraw the deposit made to the Stability Pool at any time. There is
+no minimum lockup duration. However, withdrawals are temporarily suspended whenever there
+are liquidatable Vaults with a collateral ratio below 110% that have not been liquidated yet.
+#### What oracle are you using to determine the price of ETH?
+Onvault uses USDAO’s Oracle Module to determine the price of the ETH. Please check in our [Docs](https://docs.usdao.io/usdao-v2/components-and-terminologies/terminologies#oracles)
+#### Can I lose money by depositing funds to the Stability Pool?
+In General there is no possibility, as USDAO and OnVault are built in a way they are always over
+collateralised, but when the liquidations will occur at a collateral ratio well above 100% most of
+the time, it is theoretically possible that a Vault gets liquidated below 100% in a flash crash or due to an oracle failure. In such a case, you may experience a loss since the collateral gain will be
+smaller than the reduction of your deposit.
+
+If USDAO is trading above $1, liquidations may become unprofitable for Stability Providers even
+at collateral ratios higher than 100%. However, this loss is hypothetical since USDAO is expected
+to return to the peg, so the “loss” only materializes if you had withdrawn your deposit and sold
+the USDAO at a price above $1.
+#### What happens if the Stability Pool is empty when liquidations occur?
+If the Stability Pool is empty, the system uses a secondary liquidation mechanism called
+redistribution. In such a case, the system redistributes the debt and collateral from liquidated
+Vaults to all other existing Vaults. The redistribution of debt and collateral is done in proportion
+to the recipient Vault’s collateral amount.
+### ASSET Reward and Distribution
+#### What is ASSET?
+ASSET is the secondary token issued by the USDAO protocol. This is the reward Token to gain for
+staking USDAO in the Stability Pool of USDAO OnVault. This also acts as a Governance token for
+USDAO Ecosystem.
+#### Is ASSET a governance token?
+Yes, ASSET is a governance token.
+#### How can I earn ASSET Token?
+ASSET is earned in two ways:
+- Depositing USDAO into the Stability Pool/OnVault Staking.
+- Through token sale at the time of ASSET launchpad.
+#### What can I do with ASSET Token?
+ASSET Token holders can use their tokens in governance to participate in the community
+decisions of USDAO ecosystem
+#### ASSET Token Flow in OnVault
+The OnVault system incorporates a secondary token, called ASSET Token. The ASSET token is the
+governance token of the USDAO ecosystem, the ASSET token will play an important role in taking
+the decisions in the USDAO ecosystem by Creating/Voting Proposals through USDAO Governance
+Protocol (SnapShot). The USDAO holder must put their USDAO in the stability pool to earn ASSET
+Token as reward. The ASSET token will be distributed to the Stability Providers through a
+continuous time-based manner.
+#### ASSET Issuance to Stability Providers
+Stability Providers earn ASSET tokens continuously over time, in proportion to the size of their
+deposit. This is known as “Community Issuance”, and is handled by CommunityIssuance.sol smart
+contract.
+
+Upon system deployment and activation, CommunityIssuance holds an initial ASSET supply,
+currently (provisionally) set at 2 million ASSET tokens.
+#### ASSET Issuance schedule
+The overall community issuance schedule for ASSET is sub-linear and monotonic. We currently
+(provisionally) implement a yearly “Quarter-Life” schedule, described by the cumulative issuance
+function:
+$$ supplyCap*(1-0.75^t) $$
+Where t is year and supplyCap is (provisionally) set to represent 2 million ASSET tokens.
+
+It results in the following cumulative issuance schedule for the community ASSET supply:
+
+| Year | Percentage Distribution | ASSET Supply |
+| :---: | --- | --- |
+| 01 | 25 | 5,00,000 |
+| 02 | 43.75 | 8,75,000 |
+| 03 | 57.8125 | 11,56,250 |
+| 04 | 68.359375 | 13,67,188 |
+| 05 | 76.26953125 | 15,25,391 |
+| 06 | 82.20214844 | 16,44,043 |
+| 07 | 86.65161133 | 17,33,032 |
+| 08 | 89.9887085 | 17,99,774 |
+| 09 | 92.49153137 | 18,49,831 |
+| 10 | 94.36864853 | 18,87,373 |
+
+The shape of the ASSET issuance curve is intended to incentivize both early depositors, and
+long-term deposits.
+
+Although the ASSET issuance curve follows a yearly Quarter-Life schedule, in practice the
+CommunityIssuance contract uses time intervals of one minute, for more fine-grained reward
+calculations.
+#### ASSET Issuance implementation
+The continuous time-based ASSET issuance is chunked into discrete reward events that occur at
+every deposit change (new deposit, top-up, withdrawal), and every liquidation, before other
+state changes are made.
+
+In an ASSET reward event, the ASSET tokens to be issued is calculated based on time passed since
+the last reward event, (block.timestamp - lastAssetIssuanceTime), and the cumulative issuance
+function.
+
+The ASSET tokens produced in this issuance event are shared between depositors, in proportion
+to their deposit sizes.
+
+To efficiently and accurately track ASSET gains for depositors as deposits decrease over time from
+liquidations, we re-use the algorithm for rewards from a compounding, decreasing stake. It is the
+same algorithm used for the ETH gain from liquidations.
+#### Was there an ASSET Token airdrop?
+No. ASSET could only be earned by the methods mentioned above.
