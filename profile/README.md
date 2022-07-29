@@ -440,3 +440,231 @@ many more.
 | Security | High | Medium | Medium | High | 
 | Automation | High | Low | Low | Medium | 
 | Wallet Support | High | High | High | High | 
+
+## Decentralized Governance - Snapshot
+### Understanding Snapshot
+Snapshot is at the forefront of innovating DAO participation by creating equitable and
+customizable participation structures across all DAOs for creating proposals, discussion, and
+voting. Snapshot helps Decentralized Autonomous Organizations to facilitate smooth and
+seamless financial transactions worldwide in a decentralized manner.
+
+Snapshot has become widely popular among many DAO communities in the past year, which is
+used mainly as an off-chain multi-governance framework that enables gasless voting for DAOs
+while creating, and voting on proposals, which means the protocol doesn’t cost any precious
+ETH.
+
+### Key Feature
+- Creating a proposal and voting for free.
+- Flexible voting strategies: vote with ERC20s, NFTs, or any contract.
+- Multiple voting systems: single choice, approval voting, quadratic voting and more.
+- Snapshot Spaces can have their custom skin and domain name.
+- Fully open source with GPL-3.0-or-later and MIT license.
+
+### Strategies in Snapshot
+A strategy is a JavaScript function which is used to return the score for a set of addresses.
+Strategies are often used on Snapshot to calculate the end result for a proposal. A proposal can
+have a single or multiple strategies. The default strategy in Snapshot is to calculate the balance of
+an ERC20 for each voter.
+
+As per the Snapshot we have to add a voting strategy for our proposals. erc20-balance-of and
+Contract-call are the most used strategies. Here we can have multiple strategies and we can add
+custom strategies as well. We can add up to 5 strategies in our space.
+
+Here we added our own customized token and there is a feature of editing the strategy by
+clicking on it once selected.
+
+### Voting types in Snapshot
+Snapshot supports a number of different voting types and they even plan to support many more
+in the future. It follows a distinct mechanism to ascertain the voting power of each vote. The
+voting power of each vote can be calculated via the strategy selected in the proposal by the
+voter.
+
+1. Single Choice Voting - Under this system a voter can choose a single option among the various
+choices available to him. Under this case, the entire voting power would go to the selected
+choice.
+2. Approval Voting - In this case, each voter can approve any number of choices and every
+selected choice would be given equal voting power.
+3. Quadratic Voting - Herein, each voter may disperse his voting power across any number of
+choices and the results would be calculated quadratically.
+4. Ranked Choice Voting - This is the most interesting voting type present in Snapshot. Here, each
+voter can rank any number of choices. Votes are initially counted for each voter's top choice.
+
+### How to create Proposal in Snapshot
+In order to create a new proposal on Snapshot follow the below-mentioned steps
+- Firstly, go to any project space and click on connect wallet in the top right corner of the
+window.
+- Connect with wallet provider where you hold relevant tokens and thereafter click on “New
+Proposal”
+- Fill out the Title and summary of your proposal. Mention all the required details.
+- Go to the “Actions” box and select the Voting Type, start date and end date of your proposal.
+This would be the time period available to the users to vote for your project. Make sure you allow
+enough time frame for voting.
+- Use the default Snapshot block number or you can change it as per your requirements. The
+block number is the snapshot where the balance of voters will be counted.
+- Here comes the final step! Just click on “Publish” and your proposal is created!
+
+### We are also looking up to do the setup of Orange
+Orange (Le Vote)- Here, Each vote is encrypted using a new encryption mechanism before
+submission.
+- For each encrypted score in the vote, proofs are generated and stored. Everyone can use
+these proofs to verify the correctness and the eligibility of each submission without
+decrypting the content of the vote.
+- This ensures the validity of the submitted votes in the counting process and at the same
+time it also maintains confidentiality.
+- As this voting solution is based on blockchain, it secures the organization and results of a
+poll.
+- Le Vote guarantees the secrecy of the vote by using a transparent and anonymous
+mechanism without any personal data being stored in the databases of the service
+providers and app developers.
+
+## OnVault - Introduction to 0% Interest free Borrowing
+OnVault is a decentralized borrowing protocol that allows you to draw interest-free loans
+against Ether used as Collateral. Loans are paid out in USDAO(a crypto backed stablecoin) and
+need to maintain a minimum collateral ratio of 110%.
+
+In addition to the collateral, the loans are secured by a Stability Pool containing USDAO
+and by fellow borrowers collectively acting as guarantors of vaults created. Learn more about
+these mechanisms in our documentation.
+
+OnVault as a protocol is non-custodial, immutable, and governance-free.
+### OnVault Terminology
+- <b>Collateral</b>: Collateral is any asset which a borrower must provide to take out a loan, acting
+as a security for the debt. Currently, OnVault only supports ETH as collateral.
+- <b>Debt</b>: Amount of USDAO that the user borrows against the collateral.
+- <b>Vault</b>: The position of ETH-USDAO created in the system when ICR > MCR.
+- <b>TCR</b>: The Total Collateral Ratio is the sum of the collateral of all Vaults expressed in US
+Dollar, divided by the debt of all Vaultsexpressed in USDAO.
+- <b>MCR (Minimum Collateral Ratio)</b>: The minimum collateral ratio is the lowest ratio of debt
+to collateral that will not trigger a liquidation under normal operations (aka Normal Mode).
+This is a protocol parameter that is set to 110%
+- <b>ICR (Internal Collateral Ratio)</b>:Value of Collateral in USD / Number of USDAO borrowed
+- <b>CCR (Critical Collateral Ratio)</b>: CCR is when the TCR of the USDAO Pool falls below the
+125%.
+- <b>Recovery Mode</b>: When the USDAO Pool reaches CCR, then the system is said to be in
+Recovery Mode.
+- <b>Fees</b>: There is a one-off fee (0.7%) whenever USDAO is borrowed.
+- <b>Staking</b>: Users can deposit the USDAO Stablecoin in the OnVault Staking to earn interest
+and other benefits.
+- <b>ASSET</b>: The incentive token generated to Stability Providers for staking USDAO. ASSET
+token is rewarded as per Quater-Life method to incentivise early adopters.
+- <b>Stability Pool</b>: Onvault Staking funds are collected in Stability Pool is the first line of
+defense in maintaining system solvency. It achieves that by acting as the source of liquidity
+to repay debt from liquidated Vaults—ensuring that the total USDAO supply always
+remains backed.
+- <b>Liquidation</b>: To ensure that the entire USDAO supply remains fully backed by collateral,
+Vaults that fall under the Minimum Collateral Ratio of 110% in the normal scenario, and
+when in Recovery Mode the Minimum Collateral Ratio of 125% will be liquidated (closed).
+- <b>Liquidator</b>: The address that calls Liquidation function.
+
+### General Motivation:
+#### What’s the motivation behind OnVault?
+Stable-value assets are an essential building block for Ethereum applications and have grown to
+represent tens of billions of dollars in value.
+
+However, the majority of the asset value is in the form of fiat-collateralized stablecoins like USDC
+and Tether. Decentralized stablecoins like DAI and sUSD make up only a small portion of the total
+stablecoin supply, meaning the majority of stablecoins are centralized and controlled by private
+issuers.
+
+USDAO being a decentralized, transparent community driven and 100% crypto-backed stablecoin.
+So USDAO came up with a solution like OnVault which addresses this issue by creating a capital
+efficient and user-friendly way to borrow stablecoins. Furthermore, OnVault is governance-free,
+ensuring that the protocol remains completely decentralized.
+
+#### What are the key benefits of OnVault?
+OnVault’s key benefits include:
+- 0% interest rate — as a borrower, there’s no need to worry about constantly accruing
+debt.
+- Minimum Collateral Ratio of 110% — more efficient usage of deposited ETH
+- Fully decentralized — OnVault contracts have no admin keys which means there are no
+admins to change anything in the contracts.
+#### Can OnVault be upgraded or changed?
+No. OnVault has no admin key, and nobody can alter the rules of the system in any way. The
+smart contract code is completely immutable.
+#### What are the main use cases of OnVault?
+1. Borrow USDAO against ETH by opening a Vault.
+2. Secure OnVault by providing USDAO to the Stability Pool in exchange for rewards in
+ASSET Token.
+#### What do I need in order to use OnVault?
+To borrow USDAO, all you need is a wallet (e.g. MetaMask) and sufficient Ether to open a Vault
+and pay the gas fees.
+
+To become a Stability Pool depositor , you need to have USDAO tokens. USDAO can be borrowed
+by opening a Vault or by minting with Ether from the USDAO pool. You can also use CEX or DEX
+where USDAO is listed inorder to buy USDAO.
+#### Does OnVault charge any fees?
+There is a one-off fee whenever USDAO is borrowed.
+The fees cannot become smaller than 0.7% on Borrowing amount of USDAO.
+When the system is in Recovery Mode, there is no Fee for Borrowing USDAO.
+#### How can I earn money using OnVault?
+To generate revenue using OnVault is by depositing USDAO to the Stability Pool (staking USDAO)
+and earn liquidation gains (in ETH) and ASSET in rewards.
+#### Can I lose my funds?
+As a non-custodial system, all the tokens sent to the protocol will be held and managed
+algorithmically without the interference of any person or legal entity. That means your funds will
+only be subject to the rules set forth in the smart contract code.
+
+There are two scenarios under which you may lose a part of your funds:
+- You are a borrower (Vault owner) and your collateral in ETH is liquidated. You will still
+keep your borrowed USDAO, but your Vault will be closed and your collateral will be
+used to compensate Stability Pool depositors(Stakers).
+- You are a Stability Pool depositor(Stakers) and your deposited USDAO is used to repay
+debt from liquidated borrowers. Since liquidations are triggered any time borrowers’
+collateral drops below 110%, you will receive more ETH in return with a very high
+probability. However, if ETH decreases in price and you maintain exposure, you may
+lose value in your total pool deposits.
+### Borrowing
+#### Why would I use OnVault for borrowing?
+OnVault protocol offers interest-free loans and is more capital efficient than any other borrowing
+protocol (i.e. less collateral is needed for the same loan). Instead of selling Ether to have liquid
+funds, you can use the protocol to lock up your Ether, borrow against the collateral to withdraw
+USDAO, and then repay your loan at a future date.
+
+For example: Borrowers speculating on future Ether price increases can use the protocol to
+leverage their Ether positions, increasing their exposure to price changes. This is possible
+because USDAO can be borrowed against Ether, sold on the open market to purchase more Ether
+— rinse and repeat.*
+
+<i>*Note: This is not a recommendation for how to use OnVault. Leverage can be risky and should be used only by those with
+experience( an upcoming implementation in the USDAO Ecosystem).</i>
+#### Why should a protocol offer interest-free borrowing?
+The protocol charges one-time borrowing fees.
+Other systems (e.g. MakerDAO) require variable interest rates to make borrowing more or less
+favorable, but they do so implicitly that borrowers would not feel the impact upfront. Given that
+this also needs to be managed via governance, OnVault instead opts for a fully decentralized and
+direct feedback mechanism via one-off fees.
+#### How can I borrow with OnVault?
+To borrow you must open a Vault and deposit a certain amount of collateral (ETH) to it. Then you
+can draw USDAO up to a collateral ratio of 110%. A minimum debt of 500 USDAO is required.
+#### What is a Vault?
+A Vault is where you take out and maintain your loan. Each Vault is linked to an Ethereum
+address and each address can have just one Vault. If you are familiar with Vaults or Collateralised
+Debt Positions(CDPs) from other platforms, Vaults are similar in concept.
+
+Vaults maintain two balances: one is ETH acting as collateral and the other is a debt denominated
+in USDAO. You can change the amount of each by adding collateral or repaying debt. As you make
+changes in the balance, your Vault‘s collateral ratio changes accordingly.
+You can close your Vault at any time by fully paying off your debt.
+#### Do I have to pay fees as a borrower?
+Every time you draw USDAO from your Vault, a one-off borrowing fee is charged on the drawn
+amount and added to your debt. Please note that the borrowing fee of 0.7% is applicable under
+normal operation. The fee is 0% during Recovery Mode. A 200 USDAO Liquidation Reserve charge
+will be applied as well, but returned to you upon repayment of debt.
+#### How is the borrowing fee calculated?
+The Borrowing fee is added to the debt of the Vault, and the confined borrowing fee for USADO
+OnVault is 0.7%.
+
+For example: The borrowing fee stands at 0.7% and the borrower wants to receive 4,000 USDAO
+to their wallet. Being charged a borrowing fee of 28.00 USDAO, the borrower will incur a debt of
+4,228 USDAO after the Liquidation Reserve and issuance fee are added.
+#### When do I need to pay my loan back?
+Loans issued by the protocol do not have a repayment schedule. You can leave your Vault open
+and repay your debt any time, as long as you maintain a collateral ratio of at least 110%.
+#### What is the collateral ratio?
+This is the ratio between the Dollar value of the collateral in your Vault and its debt in USDAO.
+The collateral ratio of your Vault will fluctuate over time as the price of Ether changes. You can
+influence the ratio by adjusting your Vault’s collateral and/or debt — i.e. adding more ETH
+collateral or paying off some of your debt.
+
+For example: Let’s say the current price of ETH is $3,000 and you decide to deposit 10 ETH. If you
+borrow 10,000 USDAO, then the collateral ratio for your Vault would be 300%.
