@@ -668,7 +668,7 @@ collateral or paying off some of your debt.
 
 For example: Let’s say the current price of ETH is $3,000 and you decide to deposit 10 ETH. If you
 borrow 10,000 USDAO, then the collateral ratio for your Vault would be 300%.
-$$ {10\ ETH*\$3000 \over 10,000\ USDAO} = 300\% $$
+$$\ {10\ ETH*\$3000 \over 10,000\ USDAO}*100\\% = 300\\% \$$
 If you instead took out 25,000 USDAO that would put your ratio at 120%.
 #### What is the minimum collateral ratio (MCR) and the "recommended" collateral ratio?
 The minimum collateral ratio (or MCR for short) is the lowest ratio of debt to collateral that will
@@ -811,7 +811,7 @@ currently (provisionally) set at 2 million ASSET tokens.
 The overall community issuance schedule for ASSET is sub-linear and monotonic. We currently
 (provisionally) implement a yearly “Quarter-Life” schedule, described by the cumulative issuance
 function:
-$$ supplyCap*(1-0.75^t) $$
+$$\ supplyCap*(1-0.75^t) \$$
 Where t is year and supplyCap is (provisionally) set to represent 2 million ASSET tokens.
 
 It results in the following cumulative issuance schedule for the community ASSET supply:
