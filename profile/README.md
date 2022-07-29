@@ -852,3 +852,263 @@ liquidations, we re-use the algorithm for rewards from a compounding, decreasing
 same algorithm used for the ETH gain from liquidations.
 #### Was there an ASSET Token airdrop?
 No. ASSET could only be earned by the methods mentioned above.
+
+## Recovery Mode
+### What is Recovery Mode?
+Recovery Mode kicks in when the Total Collateral Ratio (TCR) of the system falls below 125%.
+During Recovery Mode, Vaults with a collateral ratio below 125% can be liquidated.
+Moreover, the system blocks borrower transactions that would further decrease the TCR. New
+USDAO may only be issued by adjusting existing Vaults in a way that improves their collateral
+ratio, or by opening a new Vault with a collateral ratio>=125%. In general, if an existing Vault’s
+adjustment reduces its collateral ratio, the transaction is only executed if the resulting TCR is
+above 125%.
+
+### What is the purpose of Recovery Mode?
+The goal of Recovery Mode is to incentivize borrowers to behave in ways that promptly raise the
+TCR back above 125%, and to incentivize USDAO holders to replenish the Stability Pool.
+Economically, Recovery Mode is designed to encourage collateral top-ups and debt repayments,
+and also itself acts as a self-negating deterrent: the possibility of it occurring actually guides the
+system away from ever reaching it. Recovery Mode is not a desirable state for the system.
+
+### What are the fees during Recovery Mode?
+While in Recovery Mode the borrowing fee is set to 0% to maximally encourage borrowing.
+
+### How can I make my Vault safe in Recovery Mode?
+By increasing your collateral ratio to 125% or greater, your Vault will be protected from
+liquidation. This can be done by adding collateral, repaying debt, or both.
+
+### Can I be liquidated if my collateral ratio is below 125% in Recovery Mode?
+Yes, you can be liquidated below 125% if your Vault’s collateral ratio is smaller than 125%. In
+order to avoid liquidation in Normal Mode and Recovery Mode, a user should keep their
+collateral ratio above 125%.
+
+### How much of a Vaults collateral can be liquidated in Recovery Mode?
+In Recovery Mode, liquidation loss is capped at 110% of a Vault’s collateral. Any remainder, i.e.
+the collateral above 110% (and below the TCR), can be reclaimed by the liquidated borrower
+using the standard web interface.
+This means that a borrower will face the same liquidation “penalty” (10%) in Recovery Mode as
+in Normal Mode if their Vault gets liquidated.
+
+## Potential Use cases
+As mentioned earlier the prime motivation to build USDAO was to create a stablecoin that could
+ease-out business processes with transparency, governance and decentralization. A stablecoin
+that could be easily integrable with minimum hassle and should enable multiple business use
+cases. We have identified various use cases for USDAO stablecoin along with their roadmaps.
+
+### Startup’s funding:
+ICOs (Initial Coin Offering) were a big deal back in 2017. It is a great concept but lacks security.
+However, since anybody could launch their own ICO with little technical knowledge, hundreds of
+untrusted and Ponzi schemes flooded the ICO market which soon became scams. With the vision
+to secure ICOs and uplift valuable startups with true potential, we intend to provide a trustless
+platform for both legitimate startups and global investors.
+The platform shall harness the true potential of smart contracts and enable the funding of
+startups with USDAO stablecoins as input. To prevent the ICO mistake and safeguard the
+investors’ money, the investors shall invest into the startup smart contract rather than in startups
+directly.
+This way when startups do good, and their valuation increases, the valuation of startup tokens
+increases which investors may further redeem along with the profit. It is safer to invest in this
+platform than in an unknown ICO since the investment goes to a pool of startups all of which are
+being mentored and incubated by reputed incubators.
+
+### Funding Tree: Launchpad Decentralized
+The Funding Tree project is a truly decentralized launchpad platform that is governed by the
+community, so the community will decide which project should get listed and which project
+should raise how much amount all through governance. The financial architecture is powered by
+the USDAO stablecoin itself.
+
+### Payment Solutions:
+The dream of a truly global stablecoin cannot be achieved unless it replaces fiat currencies as the
+preferred payment asset. We intend to provide the merchants of the world with the enormous
+potential of blockchain technology in its most simplified form. We envisioned providing a better
+and safer payment method alternative to the giant but centralized fiat institutions.
+
+We are offering simple APIs and widgets that can be used to quickly start accepting payments in
+USDAO across the globe. Like popular centralized payment channel services like Apple Pay and
+Google Pay, we would soon provide a web interface with rich transaction data and other essential
+information regarding payment activities.
+
+### Game economics, NFT (Non-Fungible Tokens) and Metaverse
+We see an immense potential in the economics involved in the gaming industry. The concept of
+tokens and payments has existed even before the existence of stablecoins. And as such there
+cannot be any better marriage of the blockchain and gaming industry as it not only makes the
+gaming experience safer but also trustless.
+
+More importantly, the true potential of using USDAO stablecoin with games comes from the fact
+that more smart contracts can be developed on top of gaming logic integrating more complex yet
+rich gaming features using USDAO stablecoin and NFT implementation to pay revenues to the
+content owner.
+
+A USDAO integration into a metaverse based games shall provide an opportunity for trustless
+token economics including in-app purchases and asset transfers. In games that require trust, such
+as betting, users can participate honestly and with the assurance of fair gameplay.
+
+### NFT Marketplace
+Create and sell anything as digital assets. USDAO NFT Marketplace is an e-commerce platform for
+exchanging all the digital assets as NFT across different domains, not only art! The integration of
+the USDAO protocol with NFT applications provides a variety of platform and economic token
+opportunities, which include in-app purchases and asset transfers as some of the potential use
+cases.
+Buy Bid Sell Trade on the go.
+
+### Power Stake
+A new age staking model with USDAO stablecoin, where users can earn from 40% to 180%
+interest in native use case tokens launched by USDAO ecosystem platforms.
+Making sure you never lose your capital.
+
+### Universal Swap
+A One-stop destination to swap tokens in between different blockchains,
+Universal swap is the first CEX-DEX hybrid swap that leverages both of its liquidity from CEX and
+DEX (decentralized exchange) to get you the best price.
+
+### Remittance
+Send money, anytime, anywhere for any cause with complete tracking through USDAO. Using our
+remittance service, users can send USDAO stablecoins to any part of the globe within seconds
+with minimal transaction fees. The application ensures no party can cheat the other, hence,
+ensuring everyone’s monetary interests.
+
+## StableDAO
+StableDAO is among the top decentralized cross chain reserve currency protocols that is inspired
+by the model of OlympusDAO . StableDAO also introduces economic and game theory dynamics
+into the market through staking and bonding. Moreover, it brings in the power of compounding
+through the dynamic rebasing technique, and it is backed by USDAO stablecoin. StableDAO's
+primary motive is to own its liquidity and also be collateralized(bonding) through USDAO which is
+the world's first truly decentralized stablecoin.
+
+Make great returns on a bear market by investing and staking on StableDAO.
+
+### Roadmap
+
+### V1
+The USDAO ecosystem will be launching with ether for minting USDAO and collateralization
+purposes on Ethereum blockchain for the USDAO Pool with audited smart contracts.
+
+### V2
+The USDAO Pool will be upgraded to operate on multiple blockchains like Binance smart chain
+Polygon, Algorand, Cardano, Solana, Polkadot, and Kasuma. This will make USDAO a multi-chain
+stablecoin operable on the above blockchain ecosystems.
+
+### V3
+The ecosystem will start accepting multiple cryptos as collateralization making USDAO
+Multi-collateral USDAO (MCU).
+This milestone will enable diversification of the minting/burning process of USDAO. The
+tokens/coins that will exist on the platform will be approved through governance.
+
+### V4
+The USDAO ecosystem will create Crypto indexes that will leverage high-performing
+cryptocurrencies, Machine learning, and AI (Artificial Intelligence) for making sure the USDAO
+pool is collateralized i.e. like the S&P500 index with Auto Asset Management.
+
+For example
+
+1. Market Leaders: Top 10 crypto’s which have the highest market cap will be picked to form a
+basket of crypto’s to make sure the USDAO pool always has enough liquidity to pay off
+users.
+
+2. Underdogs: USDAO pool will create an index fund that will include the most promising
+cryptocurrencies for the collateralization process. This is to create a strong visibility of the
+upcoming project in the crypto space while making the USDAO pool collateralized using
+the underdogs crypto class.
+
+3. CBDC (Central Bank Digital Currency): The USDAO ecosystem welcomes CBDC, it will
+integrate CBDC (with Independent Forex Reserve pairing) in the USDAO Pool with the
+respective country, which will make the USDAO ecosystem a marketplace for multi-country
+CBDC liquidity pool with USDAO. This will not only keep USDAO value at $1 but will also
+ensure liquidity for cross CDBC exchanges without any external government KYC.
+
+All the above implementations will take place following governance voting for each protocol.
+More details will be provided during the proposal for voting on the proposed protocol for
+community decision.
+
+### Invitation to build applications on top of USDAO stablecoin
+We are excited to inform the developer community that we would be regularly hosting several
+events like hackathons, seminars, and online tutorials to spread and share our knowledge with
+everyone. We are looking forward to seeing independent programmers build applications on top
+of USDAO stablecoin and amaze us with their solutions.
+
+To simplify the development process, we have developed a separate section for developers. The
+section will include necessary documentation, SDKs, widget integration, code examples, and
+everything relevant for further development.
+
+We also host a platform to fund budding startups. A major part of the funding shall happen with
+the stablecoin itself. We invite innovators and crazy minds from all around the world to share
+their ideas or applications built on top of USDAO stablecoin. We are ready to fund the next
+million-dollar idea.
+
+## Conclusion
+
+### For Businesses
+USDAO is designed to assist developers and enterprise organizations in creating innovative and
+novel new products and services, empowering businesses to implement low-cost and highly
+accessible cross-border remittance solutions.
+The extensive Software Developer Kits (SDK's) which have been made available ensure that
+development teams are able to quickly and efficiently implement core USDAO protocol functions
+into their existing infrastructure without cost or limitation.
+
+### For Cryptocurrency Traders
+USDAO provides an interesting and powerful alternative to the biggest stablecoins in the market.
+Many of these existing stablecoins are centralized, developed and managed by individual
+companies and consortiums which include legacy banking interests, and which suffer from lack of
+transparency, particularly around the question of liquidity, and legitimate collateral backing and
+this makes them risky.
+Furthermore, some of the existing decentralized stablecoins require users to provide excessive
+collateralization and they carry the risk of liquidation penalty.
+The intelligent design of the USDAO protocol ensures cryptocurrency traders have access to a
+secure and fully backed stablecoin which meets their day-to-day needs when trading markets.
+
+### For Governments and NGO's
+The USDAO protocol provides the basis for cross-border remittance at high speed and low-cost,
+allowing government bodies and NGO's to quickly deploy solutions which requires quick
+movement of large sums of money at high speed, and outside of the BIS (Bank of International
+Settlements) and SWIFT. This could greatly benefit smaller nations, which may be encumbered by
+larger competitors.
+
+### For retail cryptocurrency enthusiasts
+USDAO provides a solution allowing retail holders of cryptocurrency to securely hold funds in a
+dollar-pegged manner which is outside of the purview of the banking institutions and
+governmental bodies. This ensures that retail users are in full control of their finances without
+having to rely on centralized bodies.
+
+Furthermore, for many of the worlds approximately 2 Billion people who are unbanked or
+underbanked individuals, the USDAO protocol allows access to the global market without the
+need for identity verification, which is often one of the major barriers to entry.
+
+## Conclusion: USDAO's True Power
+
+This protocol is designed to solve the crucial problem of the stable exchange of value in the
+crypto ecosystem. It is the mandate of stabilization and flexibility of minting/redeemable for $1
+worth of collateral and the (ASSET) token at the collateral ratio.
+
+The USDAO stablecoin has been designed keeping the business experience in mind. Whether you
+are a businessman, or an investor, a merchant, an entrepreneur, or an institution, USDAO has
+been designed to meet everyone’s needs. We offer the best possible solution to keep the pegged
+price stable at 1 USD with the lowest transaction fees.
+
+We also offer staking features for long-term investors and supporters of this project rewarding
+them assured returns for their loyalty. The system is run by a global and decentralized
+community. Anyone can acquire governance tokens and participate in the decision-making body
+of the USDAO stablecoin project. We are proud of the work we have done, and we intend the
+global community to run and govern it for the welfare of open source scientific development and
+advancement
+
+### References
+[1] Compound Governance
+
+[2] USM Medium - https://jacob-eliosoff.medium.com/
+
+[3] Satoshi Nakamoto. Bitcoin: A Peer-to-Peer Electronic Cash System, 2009. URL
+http://www.bitcoin.org/bitcoin.pdf.
+
+[4] Vitalik Buterin. Ethereum White Paper, 2014. URL
+https://github.com/ethereum/wiki/wiki/White-Paper.
+
+[5] Bancor whitepaper. URL https://whitepaper.io/coin/bancor
+
+[6] The Rise of Stablecoins.pdf -
+https://f.hubspotusercontent00.net/hubfs/5264302/The%20Rise%20of%20Stablecoins.pdf
+
+[7] Why Stablecoins Are On The Rise - CB Insights Research -
+https://www.cbinsights.com/research/stablecoins-institutional-media-interest/
+
+[8] Liquidity Protocol : https://docs.liquity.org/
+
+[9] Snapshot Governance : https://docs.snapshot.org/
